@@ -16,6 +16,7 @@ Usage
 ------
 
 ```
+mkdir -p ~/run
 ros2 launch ros2_runtime_fs ros2_runtime_fs.launch.xml
 <Ctrl+Z>
 bg
@@ -23,11 +24,18 @@ cd ~/run
 cd graph
 ```
 
-In case of Docker
+In case of a container
 ------
 
+Docker:
 ```
---cap-add "SYS_ADMIN"
---device "/dev/fuse"
---security-opt "apparmor:unconfined"
+--cap-add SYS_ADMIN
+--device /dev/fuse
+--security-opt apparmor:unconfined
+```
+
+Podman:
+```
+--device /dev/fuse:/dev/fuse
+--privileged
 ```
