@@ -48,7 +48,7 @@ sudo podman pull docker.io/library/ros:rolling
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
 git clone git@github.com:gozhev/ros2_runtime_fs.git
-sudo podman run --volume ~/devel/ros2_ws/:/opt/ros2_ws --volume /dev/fuse:/dev/fuse --privileged --rm -it docker.io/library/ros:rolling
+sudo podman run --volume ~/ros2_ws/:/opt/ros2_ws --volume /dev/fuse:/dev/fuse --privileged --rm -it docker.io/library/ros:rolling
 apt install -y fuse3 python3-pyfuse3
 cd /opt/ros2_ws
 colcon build ros2_runtime_fs
